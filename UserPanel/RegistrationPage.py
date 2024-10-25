@@ -3,8 +3,13 @@ from tkinter import ttk
 from tkinter import messagebox
 import Navigator  # Import the navigator module to open the navigator window
 
+global first_name, last_name, email, role
+# Function to handle form submission
+import Registration  # If these functions are in the same module, you don't need to import
+
 # Function to handle form submission
 def submit_data():
+    # Get the form data
     first_name = first_name_entry.get()
     last_name = last_name_entry.get()
     email = email_entry.get()
@@ -15,12 +20,20 @@ def submit_data():
         messagebox.showwarning("Input Error", "All fields are required!")
         return
 
-    # Close the current registration form window
+    # Use the setter functions to store the data
+    Registration.set_first_name(first_name)
+    Registration.set_last_name(last_name)
+    Registration.set_email(email)
+    Registration.set_role(role)
+
+    # Close the registration form window
     root.destroy()
 
     # Open the navigator page with the entered data
-    Navigator.open_navigator(first_name, last_name, email, role)
-
+    Navigator.open_navigator(Registration.get_first_name(),
+                             Registration.get_last_name(),
+                             Registration.get_email(),
+                             Registration.get_role())
 # Function to create the form
 def create_form():
     global frame, first_name_entry, last_name_entry, email_entry, role_combobox
