@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import Navigator  # Import the navigator module to open the navigator window
+import UserNavigator  # Import the navigator module to open the navigator window
 
 global first_name, last_name, email, role
 # Function to handle form submission
@@ -30,7 +30,7 @@ def submit_data():
     root.destroy()
 
     # Open the navigator page with the entered data
-    Navigator.open_navigator(Registration.get_first_name(),
+    UserNavigator.open_navigator(Registration.get_first_name(),
                              Registration.get_last_name(),
                              Registration.get_email(),
                              Registration.get_role())

@@ -2,7 +2,7 @@ import string
 import random
 import mysql.connector
 from mysql.connector import Error
-import Registration  # Import the module where the getters are defined
+from UserPanel import Registration  # Import the module where the getters are defined
 
 # Database connection
 try:
@@ -37,6 +37,9 @@ def bookingProcedure(event_name):
         result = cursor.fetchone()
         user_id = result[0] if result else None
 
+        Registration.set_userId(user_id)
+
+
         # Step 2: If the user doesn't exist, insert a new user
         if user_id is None:
             cursor.execute(
@@ -45,6 +48,8 @@ def bookingProcedure(event_name):
             )
             db_connection.commit()
             user_id = cursor.lastrowid  # Get the generated user_id
+            Registration.set_userId(user_id)
+
 
         # Step 3: Generate a random seat number in the format A1 to Z50
         random_seat = f"{random.choice(string.ascii_uppercase)}{random.randint(1, 50)}"

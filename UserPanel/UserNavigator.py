@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
-import EventInfo  # Import the Tab1 module
-import tab2  # Import the Tab2 module
+from UserPanel import UserEventInfo  # Import the Tab1 module
+from UserPanel import tab2  # Import the Tab2 module
 
 
 # Function to create the navigator window and display the profile
 def open_navigator(first_name, last_name, email, role):
+    print(f"role called for event: {role}")
     # Initialize the main window
     root = tk.Tk()
     root.title("User Navigator")
@@ -19,8 +20,8 @@ def open_navigator(first_name, last_name, email, role):
     create_user_profile_tab(notebook, first_name, last_name, email, role)
 
     # Create Tab1 and Tab2 from external modules
-    EventInfo.create_tab1(notebook)  # Import content of Tab1
-    tab2.create_tab2(notebook)  # Import content of Tab2
+    UserEventInfo.create_tab(notebook)  # Import content of Tab1
+    tab2.TicketList(notebook)  # Import content of Tab2
 
     # Start the GUI event loop
     root.mainloop()

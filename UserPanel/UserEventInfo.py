@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 from ConnectingDatabase import cursor
-from BookingProcedure import bookingProcedure  # Import the booking procedure function
+
+from UserPanel import BookingProcedure
 
 
 # Function to fetch event data
@@ -40,11 +41,11 @@ def fetch_event_data():
 # Function to handle booking action
 def book_event(event_name):
     # Call the booking procedure when "Book" button is clicked
-    bookingProcedure(event_name)
+    BookingProcedure.bookingProcedure(event_name)
 
 
 # Function to create the event info tab
-def create_tab1(notebook):
+def create_tab(notebook):
     tab1_frame = tk.Frame(notebook)
     notebook.add(tab1_frame, text="EventInfo")
 
@@ -110,7 +111,7 @@ if __name__ == "__main__":
     notebook.pack(fill=tk.BOTH, expand=True)
 
     # Create the Event Info tab
-    create_tab1(notebook)
+    create_tab(notebook)
 
     # Start the GUI event loop
     root.mainloop()

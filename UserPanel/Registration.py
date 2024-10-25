@@ -5,6 +5,7 @@ first_name = ""
 last_name = ""
 email = ""
 role = ""
+User_id=""
 
 # Setter functions
 def set_first_name(value):
@@ -23,6 +24,11 @@ def set_role(value):
     global role
     role = value
 
+
+def set_userId(value):
+    global User_id
+    User_id = value
+
 # Getter functions
 def get_first_name():
     return first_name
@@ -35,3 +41,7 @@ def get_email():
 
 def get_role():
     return role
+
+
+def get_UserId():
+    return User_id
