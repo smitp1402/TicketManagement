@@ -3,7 +3,6 @@ from tkinter import ttk
 import EventInfo  # Import the Tab1 module
 import tab2  # Import the Tab2 module
 
-
 # Function to create the navigator window and display the profile
 def open_navigator(first_name, last_name, email, role):
     # Initialize the main window
@@ -19,12 +18,11 @@ def open_navigator(first_name, last_name, email, role):
     create_user_profile_tab(notebook, first_name, last_name, email, role)
 
     # Create Tab1 and Tab2 from external modules
-    EventInfo.create_tab1(notebook)  # Import content of Tab1
+    EventInfo.create_tab1(notebook, role)  # Pass role to Tab1
     tab2.create_tab2(notebook)  # Import content of Tab2
 
     # Start the GUI event loop
     root.mainloop()
-
 
 # Function to create the UserProfile tab and display user information
 def create_user_profile_tab(notebook, first_name, last_name, email, role):
