@@ -3,7 +3,7 @@ import random
 import mysql.connector
 from mysql.connector import Error
 from UserPanel import Registration  # Import the module where the getters are defined
-
+from UserPanel import tab2
 # Database connection
 try:
     db_connection = mysql.connector.connect(
